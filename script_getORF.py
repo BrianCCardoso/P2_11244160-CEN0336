@@ -26,7 +26,7 @@ def open_reading_frame(dic_genes):
 def max_reading_frame(dic_openrc):
     dic_max_ORF = {}#criacao do dicioario
     for id in dic_openrc.keys():#acessando os valores do dicionario
-        dic_max_ORF[id] = {'Sequência' : '', 'Começo' : '', 'Fim' : '', 'Frame de leitura' : '', 'Tamanho' : 0}#criacao do dicionario nesse formato para futuro uso das informacoes
+        dic_max_ORF[id] = {'Sequência' : '', 'Começo' : 0, 'Fim' : 0, 'Frame de leitura' : 0, 'Tamanho' : 0}#criacao do dicionario nesse formato para futuro uso das informacoes
         for frame in dic_openrc[id]:
             sequencia_compilada = ''.join(dic_openrc[id][frame])
             for match in re.finditer(r'ATG.*?(TAA|TGA|TAG)',sequencia_compilada):#buscando todas as opcoes de orf de acordo com a expressao regular
